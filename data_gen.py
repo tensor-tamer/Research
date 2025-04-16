@@ -186,9 +186,7 @@ def scramble_state(state, min_moves=20, max_moves=40):
     moves = random.randint(min_moves, max_moves)
     for _ in range(moves):
         state = random.choice(get_neighbors(state))
-    # Optionally inject noise
     state = inject_noise(state, noise_prob=0.05)
-    # Optionally apply augmentation (rotation/mirror)
     state = augment_state(state)
     return state
 
@@ -215,7 +213,7 @@ def generate_fixed_balanced_dataset(num_per_heuristic=125, output_file="balanced
             count += 1
     with open(output_file, "w") as f:
         json.dump(all_data, f, indent=2)
-    print(f"✅ Saved {len(all_data)} episodes to {output_file}")
+    print(f"Saved {len(all_data)} episodes to {output_file}")
 
 def generate_episode(goal_min_moves=15, goal_max_moves=25, start_min_moves=25, start_max_moves=35):
     """
