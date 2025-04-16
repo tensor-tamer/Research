@@ -164,7 +164,7 @@ def train_voting_model(json_file="balanced_eval_data.json", model_file="best_mod
         "important_features": important_features
     }, model_file)
 
-    print(f"✅ StackingClassifier model saved to {model_file}")
+    print(f"StackingClassifier model saved to {model_file}")
 
     print("Running Permutation Importance...")
     result = permutation_importance(stacking, X_val_filtered, y_val, n_repeats=10, random_state=42, n_jobs=-1)
@@ -175,7 +175,7 @@ def train_voting_model(json_file="balanced_eval_data.json", model_file="best_mod
         print(f"Feature {idx}: Importance = {result.importances_mean[idx]:.4f}")
 
     accuracy = accuracy_score(y_val, y_val_pred)
-    print(f"\n✅ Validation Accuracy: {accuracy:.4f}")
+    print(f"\n Validation Accuracy: {accuracy:.4f}")
 
 
 def predict_heuristic(episode_file, model_file="best_model.pkl"):
