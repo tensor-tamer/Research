@@ -4,7 +4,7 @@ import random
 import numpy as np
 import joblib
 from make_model_input import a_star, generate_random_state, HEURISTICS
-from model import extract_features_extended  # make sure this path is correct
+from model import extract_features_extended  
 
 def decode_numpy(obj):
     """Recursively decode NumPy data types into native Python types."""
