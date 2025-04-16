@@ -166,7 +166,6 @@ def parse_state_input(state_str):
 # ----------------------------
 
 def main():
-    # Input the goal state.
     goal_input = input("Enter the goal state (9 numbers separated by spaces, use 0 for blank): ")
     try:
         goal_state = parse_state_input(goal_input)
@@ -174,7 +173,6 @@ def main():
         print("Error:", ve)
         return
 
-    # Choose the heuristic.
     print("Available heuristics:")
     for key in HEURISTICS.keys():
         print(f" - {key}")
@@ -184,7 +182,6 @@ def main():
         return
     heuristic_fn = HEURISTICS[heuristic_choice]
 
-    # Input starting state or generate one.
     start_choice = input("Do you want to enter a starting state? (y/n): ").strip().lower()
     if start_choice == 'y':
         start_input = input("Enter the starting state (9 numbers separated by spaces, use 0 for blank): ")
@@ -194,7 +191,6 @@ def main():
             print("Error:", ve)
             return
     else:
-        # Generate a random state by scrambling the goal state.
         start_state = generate_random_state(goal_state)
         print("Generated starting state:", start_state)
 
@@ -208,7 +204,6 @@ def main():
     else:
         print("No solution found.")
 
-    # (Optional) Print out the search data for debugging or analysis.
     print("\nSearch Data (first 5 expanded nodes):")
     for data in search_data[:5]:
         print(data)
