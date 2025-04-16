@@ -32,13 +32,13 @@ def evaluate_model(eval_folder="eval_data", model_path="best_model.pkl"):
 
         true_label_str = episode.get("heuristic_used")
         if not true_label_str:
-            print(f"⚠️ Missing label in {file}, skipping.")
+            print(f"Missing label in {file}, skipping.")
             continue
 
         try:
             true_label_encoded = label_encoder.transform([true_label_str])[0]
         except ValueError:
-            print(f"⚠️ Unknown label '{true_label_str}' in {file}, skipping.")
+            print(f"Unknown label '{true_label_str}' in {file}, skipping.")
             continue
 
         try:
@@ -52,13 +52,13 @@ def evaluate_model(eval_folder="eval_data", model_path="best_model.pkl"):
 
             print(f"{file}: Predicted = {predicted_label_str}, Actual = {true_label_str}")
         except Exception as e:
-            print(f"⚠️ Failed on {file}: {e}")
+            print(fFailed on {file}: {e}")
 
     if total == 0:
-        print("❌ No valid labeled episodes evaluated.")
+        print("No valid labeled episodes evaluated.")
     else:
         accuracy = (correct / total) * 100
-        print(f"\n✅ Evaluation Complete: {correct}/{total} correct | Accuracy: {accuracy:.2f}%")
+        print(f"\nEvaluation Complete: {correct}/{total} correct | Accuracy: {accuracy:.2f}%")
 
 if __name__ == "__main__":
     evaluate_model()
