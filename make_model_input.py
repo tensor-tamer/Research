@@ -11,7 +11,7 @@ def manhattan(state, goal):
     distance = 0
     for i, tile in enumerate(state):
         if tile == 0:
-            continue  # Skip the blank
+            continue  
         goal_index = goal.index(tile)
         distance += abs(goal_index % 3 - i % 3) + abs(goal_index // 3 - i // 3)
     return distance
